@@ -11,6 +11,6 @@ CMU textbook: [Computer Systems: A Programmer's Perspective, 2nd edition](https:
 
 Course Materials (ZIP): [ProgrammingParadigmsAllMaterials.zip](https://drive.google.com/file/d/0B72QyVq_2E7_V25WODRQdDBRVDA/view?usp=sharing)
 
-[Lecutre Videos](https://www.youtube.com/watch?v=Ps8jOj7diA0)
+[Lecture Videos](https://www.youtube.com/watch?v=Ps8jOj7diA0)
 
 [Udemy course](https://www.udemy.com/cs-107-programming-paradigms/)
