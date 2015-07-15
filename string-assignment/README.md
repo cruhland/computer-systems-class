@@ -1,16 +1,17 @@
 Homework assignment: string implementation
 
-Now that you’ve had some practice with void *s, pointer arithmetic, and casting, you’re in a position to write a generic data structures to imitate the functionality of the C++ standard string—without using templates. This requires some very careful programming, and mandates a full understanding of the more difficult C library functions: malloc, realloc, free, memcpy, memmove, qsort, and bsearch. You’re expected to use each and every one of these, relying on the man pages to get the documentation.
+Now that you’ve had some practice with void `void *s`, pointer arithmetic, and casting, you’re in a position to write a generic data structures to imitate the functionality of the C++ standard string—without using templates. This requires some very careful programming, and mandates a full understanding of the more difficult C library functions: malloc, realloc, free, memcpy, memmove, qsort, and bsearch. You’re expected to use each and every one of these, relying on the man pages to get the documentation.
 
 Note: you’ll be coding in straight C. There are no classes, no methods, no templates, no references, no operator new, no streams. You define new types as exposed structs (C’s best imitation of the class), but all routines that initialize, destroy, and otherwise manipulate those structs must be implemented as functions.
 
 
 The C string
 
-The C string is a more flexible extension of C's built-in char *. It has some of the same basic properties: it is managed as a contiguous region of memory, all the elements in any one string are characters like 'A' or 'z', and element indexing starts at 0, not 1. But this C string differs in that it can automatically grow when characters are appended, and it can splice characters in and out of the middle. It can sort itself, and search for a character of interest.
+The C string is a more flexible extension of C's built-in `char *`. It has some of the same basic properties: it is managed as a contiguous region of memory, all the elements in any one string are characters like 'A' or 'z', and element indexing starts at 0, not 1. But this C string differs in that it can automatically grow when characters are appended, and it can splice characters in and out of the middle. It can sort itself, and search for a character of interest.
 
 The specific requirements of the string are detailed in the interface file attached to the end of this email. The short summary:
 
+```
 typedef struct {
     int logical_length;
     int allocated_length;
@@ -27,6 +28,7 @@ void StringReplace(string *s, char c, int position);
 void StringDelete(string *s, int position);
 int StringSearch(const string *s, char key, int startIndex, bool isSorted);
 void StringSort(string *s);
+```
 
 You should make liberal use of the standard C libraries to help you write your code—think of this new abstraction as a layer on top of what the standard C facilities provide. You should use the qsort and bsearch built-ins to implement sorting and binary search. Use malloc, realloc, free, memcpy, and memmove for memory management. C++'s new and delete are off limits; in fact, they won't make it past the gcc compiler.
 
@@ -46,16 +48,21 @@ I’ve provided a simple test harness to exercise your string. Feel free to modi
 
 So to complete this assignment, you should code for each of the functions in string.c. You shouldn't need to change stringtest.c at all, unless you want to write more tests. You can compile your string implementation together with the tests by running this command:
 
+```
 [ryan@MacBookPro ~/string-assignment]$ gcc string.c stringtest.c
+```
 
 That will create an executable called a.out. The first time you run it, some of the assertions will fail:
 
+```
 [ryan@MacBookPro ~/string-assignment]$ ./a.out
 Assertion failed: (StringLength(alphabet) == 26), function TestAppend, file stringtest.c, line 42.
 Abort trap: 6
+```
 
 Eventually, it should print output like this:
 
+```
 [ryan@MacBookPro ~/string-assignment]$ ./a.out
 First, here is the alphabet: ABCDEFGHIJKLMNOPQRSTUVWXYZ
 After append digits: ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
@@ -74,3 +81,4 @@ After changing all s to *: 0123456789aBcDeFgHiJkLmNoPqR*TuVwXyZ
 
 Erasing everything in the string by repeatedly deleting the 10th-to-last remaining character.
 Almost done... deleting the last 10 elements... and we're all done!
+```
