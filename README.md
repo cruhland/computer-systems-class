@@ -2,6 +2,25 @@
 
 Resources for teaching computer systems fundamentals
 
+## Course Overview
+
+We're largely following Stanford's CS107 course (see links below).
+
+### Data Types, Binary
+Lecture 2
+
+### Memory Layout
+Lectures 3 - 5 (to 36:10)
+
+### Computer Architecture / Assembly Language
+Lectures 7 - 11
+
+### C internals
+Lectures 12 - 13
+
+### Threads
+Lectures 14 - 18
+
 ## Documents
 
 You should save copies of these for reference (in case they disappear!).
